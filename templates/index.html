@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encrypt and Decrypt Text</title>
+</head>
+<body>
+  <h1>Encrypt and Decrypt Text</h1>
+  
+  <form action="/encrypt" method="post">
+    <label for="plaintext">Text to Encrypt:</label><br>
+    <input type="text" id="plaintext" name="plaintext" value="{{ plaintext|default('') }}"><br><br>
+    <input type="submit" value="Encrypt">
+  </form>
+  
+  {% if encrypted_text %}
+  <h2>Encrypted Text:</h2>
+  <p>{{ encrypted_text }}</p>
+  {% endif %}
+  
+  <form action="/decrypt" method="post">
+    <label for="encrypted_text">Text to Decrypt:</label><br>
+    <input type="text" id="encrypted_text" name="encrypted_text" value="{{ encrypted_text|default('') }}"><br><br>
+    <input type="submit" value="Decrypt">
+  </form>
+  
+  {% if decrypted_text %}
+  <h2>Decrypted Text:</h2>
+  <p>{{ decrypted_text }}</p>
+  {% endif %}
+  
+</body>
+</html>
